@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    freopen("tripin.txt", "r", stdin);
+    freopen("tripout.txt", "w", stdout);
+    int n;
+    cin >> n;
+    int s = 0;
+    string out = "";
+    for (int i = 1; i < n+1; i++){
+        int a;
+        cin >> a;
+        if (a%3 == 0){
+            s++;
+            out += to_string(i) + " ";
+        }
+    }
+    if (out == ""){
+        cout << "Nothing here!";
+    } else {
+        cout << s << endl;
+        cout << out;
+    }
+}

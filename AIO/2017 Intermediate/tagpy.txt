@@ -1,0 +1,24 @@
+red = [1]
+blue = [2]
+repeats = 0
+line = ''
+with open ("tagin.txt") as f:
+    file = f.readlines()
+line = file[0]
+i = int(line.split(' ', 2)[1])
+while i > repeats:
+    with open ("tagin.txt") as f:
+        line = file[repeats+1]
+        a = int(line.split(' ', 2)[0])
+        b = int(line.split(' ', 2)[1])
+    if a in red:
+        if b in blue:
+            blue.remove(b)
+        red.append(b)
+    else:
+        blue.append(b)
+        if b in red:
+            red.remove(b)
+    repeats+=1
+with open ("tagout.txt", "w+") as f: 
+    f.write(str(len(red))+ ' ' + str(len(blue)))

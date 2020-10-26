@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    vector<int> prices = {1,2,4,2,5,7,2,4,9,0};
+    vector<int> m;
+        bool y = false;
+        m.push_back(0);
+        for (int i = 1; i < prices.size(); i++){
+            if (prices[i]-prices[i-1] > 0){
+                if (!y){
+                    m[m.size()-1] += prices[i]-prices[i-1];
+                } else {
+                    m.push_back(prices[i]-prices[i-1]);
+                }
+                y = false;
+            } else {
+                y = true;
+            }
+        }
+        sort(m.rbegin(), m.rend());
+        if (m.size() != 1){
+            return m[0]+m[1];
+        } else {
+            return m[0];
+        }
+}
